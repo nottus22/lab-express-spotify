@@ -1,5 +1,9 @@
-<div>
+{{#each artistSearch}}
+
+    <h2>{{this.name}}</h2>
+    <img src="{{images.0.url}}">
     <button>
-        View Albums
+        <a href="/albums/{{id}}">View Albums</a>
     </button>
-</div>
+
+{{/each}}

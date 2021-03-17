@@ -30,9 +30,11 @@ app.get('/', (req, res) => {
 
 app.get('/artist-search', (req, res) => {
     spotifyApi
-        .searchArtists(req.query.searchArtist)
+        .searchArtists(req.query.artist)
         .then(data => {
-            console.log('The received data from the API: ', data.body.artists.items);
+            let artistSearch = data.body.artists.items;
+            console.log('The received data from the API: ', data.body);
+            res.render('artist-search-results', {results: artistSearch});
         })
         .catch(error => console.log('The error while searching artists occurred: ', error));
     });
